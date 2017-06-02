@@ -1,0 +1,16 @@
+{
+  "name": "emochaWidgets",
+  "version": "1.0.0",
+  "description": "emochaWidgets provides a basic platfrom to manage inventory, browse, and place orders for widgets of different types, sizes, and colors",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "repository": "https://github.com/deomsj/emochaWidgets.git",
+  "author": "Jesse DeOms <jesse.deoms@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}
