@@ -4,15 +4,27 @@
   "description": "emochaWidgets provides a basic platfrom to manage inventory, browse, and place orders for widgets of different types, sizes, and colors",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "build": "webpack --watch"
   },
   "repository": "https://github.com/deomsj/emochaWidgets.git",
   "author": "Jesse DeOms <jesse.deoms@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.2",
+    "css-loader": "^0.28.4",
     "express": "^4.15.3",
     "pg": "^6.2.3",
-    "sequelize": "^3.30.4"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-materialize": "^1.0.1",
+    "react-router-dom": "^4.1.1",
+    "sequelize": "^3.30.4",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.1"
   }
 }

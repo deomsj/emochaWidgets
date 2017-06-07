@@ -1,4 +1,5 @@
-var { getAllWidgets,
+var {
+  getAllWidgets,
   getWidgetsByCategory,
   getWidgetsBySize,
   getWidgetsByFinish,

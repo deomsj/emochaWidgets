@@ -1,0 +1,74 @@
+p, button {
+  font-size: 20px;
+}
+
+.btn {
+  font-weight: bolder;
+  margin: 20px 2px 20px;
+  min-width: 150px;
+  background-color: #29b6f6;
+}
+
+.btn:hover,
+.btn:focus,
+.activeButton {
+  background-color: #4fc3f7;
+}
+
+.dropdown-content li>a {
+  color: #0288d1;
+}
+
+.add-button {
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 15px;
+  min-width: 50px;
+  margin: 0px 5px 5px;
+  padding: 0 15px;
+}
+
+input[type=text]{
+  font-size: 30px;
+}
+
+.searchWidgets {
+  width: 100%;
+  display: inline-block;
+}
+
+input.quantity-field {
+  width: 80px;
+}
+
+.odd-row {
+  background-color: #e3f2fd;
+}
+
+td {
+  font-size: 20px;
+}
+
+.add-widget-button {
+  font-weight: bolder;
+  min-width: 40px;
+  margin-left: 40px;
+  background-color: #29b6f6;
+}
+
+input[type=text]:focus:not([readonly])+label {
+  color: #0288d1
+}
+
+input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #0288d1;
+    box-shadow: 0 1px 0 0 #0288d1;
+}
+
+/* Medium and Large Screens */
+
+@media (min-width: 1000px) {
+  .searchWidgets {
+  width: 50%;
+}
+

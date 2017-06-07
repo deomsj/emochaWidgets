@@ -9,6 +9,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 router(app, express);
 
+app.get('/*', function(req, res) {
+  res.redirect('/');
+});
+
 var port = process.env.PORT || 3000;
 var server = app.listen(port, function() {
   console.log('Server listening on port ' + port);

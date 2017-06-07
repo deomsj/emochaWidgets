@@ -6,17 +6,17 @@ if (process.env.DATABASE_URL) {
   db = new Sequelize(process.env.DATABASE_URL, {dialect: 'postgres', logging: false });
 } else {
   // otherwise initialize Sequelize with postgres on local machine
-  db = new Sequelize('emochaWidgets', process.env.POSTGRES_USER, '', {dialect: 'postgres', logging: false });
+  db = new Sequelize('widgets', process.env.POSTGRES_USER, '', {dialect: 'postgres', logging: false });
 }
 
 db
-.authenticate()
-.then(() => {
-  console.log('Successful connection to database.');
-})
-.catch(err => {
-  console.error('Unable to connect to the database:', err);
-});
+  .authenticate()
+  .then(() => {
+    console.log('Successful connection to database.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 //create Widget table
 var Widget = db.define('Widget', {
@@ -69,20 +69,21 @@ var OrderItem = db.define('OrderItem');
 //updatedAt (auto-generated)
 
 //sync individual tables listed above and create join tables
-Widget.sync()
-.then(() => Widget.belongsTo(Category, {foreignKey: { name: 'CategoryId'}}))
-.then(() => Category.hasMany(Widget, {foreignKey: { name: 'CategoryId'}}))
-.then(() => Category.sync())
-.then(() => Widget.belongsTo(Size, {foreignKey: { name: 'SizeId'}}))
-.then(() => Size.hasMany(Widget, {foreignKey: { name: 'SizeId'}}))
-.then(() => Size.sync())
-.then(() => Widget.belongsTo(Finish, {foreignKey: { name: 'FinishId'}}))
-.then(() => Finish.hasMany(Widget, {foreignKey: { name: 'FinishId'}}))
-.then(() => Finish.sync())
-.then(() => Order.belongsToMany(Widget, {through: OrderItem }))
-.then(() => Widget.belongsToMany(Order, {through: OrderItem }))
-.then(() => Order.sync())
-.then(() => OrderItem.sync());
+Widget.sync({force: true})
+  .then(() => Widget.belongsTo(Category, {foreignKey: 'CategoryId'}))
+  .then(() => Category.hasMany(Widget, {foreignKey: 'CategoryId'}))
+  .then(() => Category.sync())
+  .then(() => Widget.belongsTo(Size, {foreignKey: 'SizeId'}))
+  .then(() => Size.hasMany(Widget, {foreignKey: 'SizeId'}))
+  .then(() => Size.sync())
+  .then(() => Widget.belongsTo(Finish, {foreignKey: 'FinishId'}))
+  .then(() => Finish.hasMany(Widget, {foreignKey: 'FinishId'}))
+  .then(() => Finish.sync())
+  .then(() => Order.belongsToMany(Widget, {through: OrderItem }))
+  .then(() => Widget.belongsToMany(Order, {through: OrderItem }))
+  .then(() => Order.sync())
+  .then(() => Widget.sync())
+  .then(() => OrderItem.sync());
 
 module.exports = {
   Widget: Widget,
